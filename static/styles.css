@@ -1,0 +1,205 @@
+/* NovaSmart Dashboard Custom Styles & D&D Theme */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphism elements */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.tab-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle glow animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+.glow-animation {
+  animation: pulseGlow 8s infinite ease-in-out;
+}
+
+/* =========================================================================
+   D&D FANTASY REALM THEME (.dnd-theme)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=MedievalSharp&display=swap');
+
+body.dnd-theme {
+  background-color: #0b0907 !important;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(184, 134, 11, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(139, 0, 0, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(20, 16, 12, 0.95) 0%, #080605 100%) !important;
+  color: #e6dac3 !important;
+  font-family: 'Inter', serif;
+}
+
+body.dnd-theme h1, 
+body.dnd-theme h2, 
+body.dnd-theme h3, 
+body.dnd-theme .font-display,
+body.dnd-theme .tab-btn span {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.03em;
+}
+
+body.dnd-theme .dnd-flavor-text {
+  font-family: 'MedievalSharp', cursive, serif !important;
+}
+
+/* D&D Ornate Card Containers */
+body.dnd-theme .bg-slate-900\/60,
+body.dnd-theme .bg-slate-900,
+body.dnd-theme .bg-slate-950\/50,
+body.dnd-theme .bg-slate-950 {
+  background: rgba(22, 18, 14, 0.88) !important;
+  border-color: #3d3122 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(212, 175, 55, 0.15) !important;
+}
+
+body.dnd-theme .border-slate-800,
+body.dnd-theme .border-slate-800\/80,
+body.dnd-theme .border-slate-800\/60 {
+  border-color: #4a3c2a !important;
+}
+
+/* Card hover glow */
+body.dnd-theme #agents-grid > div:hover {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.05) !important;
+}
+
+/* D&D Gold Accents & Badges */
+body.dnd-theme .text-indigo-400,
+body.dnd-theme .text-violet-400,
+body.dnd-theme .text-sky-400 {
+  color: #e5c158 !important;
+}
+
+body.dnd-theme .text-emerald-400 {
+  color: #6ee7b7 !important;
+}
+
+body.dnd-theme .text-white {
+  color: #fff9ed !important;
+}
+
+body.dnd-theme .text-slate-400 {
+  color: #b5a489 !important;
+}
+
+body.dnd-theme .bg-indigo-600 {
+  background-color: #8b1d1d !important;
+  background-image: linear-gradient(135deg, #a82727 0%, #6e1414 100%) !important;
+  border: 1px solid #d4af37 !important;
+  color: #fff4d9 !important;
+  box-shadow: 0 0 10px rgba(168, 39, 39, 0.5) !important;
+}
+
+body.dnd-theme .border-indigo-500 {
+  border-color: #d4af37 !important;
+}
+
+/* Tab active styling in D&D mode */
+body.dnd-theme .tab-btn.active {
+  color: #ffd700 !important;
+  border-bottom-color: #ffd700 !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* D20 Dice Rolling Animation */
+@keyframes d20Spin {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.2); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  75% { transform: rotate(270deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.dice-rolling {
+  animation: d20Spin 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Torch Flicker Ambient */
+@keyframes torchFlicker {
+  0%, 100% { opacity: 0.12; transform: scale(1); filter: blur(50px); }
+  25% { opacity: 0.18; transform: scale(1.04); filter: blur(48px); }
+  50% { opacity: 0.09; transform: scale(0.98); filter: blur(52px); }
+  75% { opacity: 0.16; transform: scale(1.02); filter: blur(49px); }
+}
+
+body.dnd-theme .dnd-torch-left {
+  position: fixed;
+  top: 50px;
+  left: 20px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #ff8c00 0%, #b22222 40%, transparent 70%);
+  animation: torchFlicker 3s infinite ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.dnd-theme .dnd-torch-right {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #ff8c00 0%, #8b0000 40%, transparent 70%);
+  animation: torchFlicker 3.5s infinite ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Governance Screen Styling & Diff Boxes */
+.font-medieval {
+  font-family: 'MedievalSharp', cursive, serif !important;
+}
+
+body.dnd-theme .font-medieval {
+  font-family: 'MedievalSharp', cursive, serif !important;
+  letter-spacing: 0.03em;
+}
+
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #090d16;
+}
+
+pre::-webkit-scrollbar {
+  height: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+body.dnd-theme pre {
+  scrollbar-color: #78350f #1c130d;
+}
+
+body.dnd-theme pre::-webkit-scrollbar-thumb {
+  background: #78350f;
+}
